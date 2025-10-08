@@ -1,17 +1,15 @@
-package IF_HW3.Tests;
+package IF_HW4.Tests;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.WebDriverRunner;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.selenide.AllureSelenide;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
 
 import java.io.InputStream;
-import java.time.Duration;
 import java.util.Properties;
+import java.time.Duration;
 
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.*;
@@ -22,24 +20,14 @@ public class BaseTest {
     protected static String password;
 
     @BeforeAll
-    static void setupAll() {
+    public static void setupAll() {
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
         loadConfig();
 
         Configuration.browser = "chrome";
         Configuration.timeout = 10000;
-        Configuration.browserSize = null;
-    }
-
-    @BeforeEach
-    void setup() {
-        open(baseUrl);
-        WebDriverRunner.getWebDriver().manage().window().maximize();
-    }
-
-    @AfterEach
-    void tearDown() {
-        Selenide.closeWebDriver();
+        Configuration.browserSize = "1920x1080";
+        Configuration.headless = false;
     }
 
     private static void loadConfig() {
@@ -56,5 +44,11 @@ public class BaseTest {
 
     protected void waitForPageLoad() {
         $x("//a[@id='browse_link']").shouldBe(visible, Duration.ofSeconds(10));
+    }
+
+    // Метод для открытия браузера
+    protected void openBrowser() {
+        open(baseUrl);
+        WebDriverRunner.getWebDriver().manage().window().maximize();
     }
 }

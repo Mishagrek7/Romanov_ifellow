@@ -1,7 +1,7 @@
-package IF_HW3.Tests;
+package IF_HW4.Tests;
 
-import IF_HW3.Pages.DashboardPage;
-import IF_HW3.Pages.LoginPage;
+import IF_HW4.Pages.DashboardPage;
+import IF_HW4.Pages.LoginPage;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

@@ -1,6 +1,6 @@
-package IF_HW3.Tests;
+package IF_HW4.Tests;
 
-import IF_HW3.Pages.*;
+import IF_HW4.Pages.*;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
