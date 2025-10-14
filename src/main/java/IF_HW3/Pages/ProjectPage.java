@@ -10,7 +10,7 @@ import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.*;
 
 public class ProjectPage extends BasePage {
-    private SelenideElement issueCounter = $x("//div[@class='showing']/span");
+    private final SelenideElement issueCounter = $x("//div[@class='showing']/span");
 
     public String getIssueCounterText() {
         waitForElement(issueCounter);

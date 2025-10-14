@@ -1,16 +1,12 @@
 package IF_HW3.Pages;
 
 import com.codeborne.selenide.SelenideElement;
-
-import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$x;
 
 public class LoginPage extends BasePage {
-    private SelenideElement usernameField = $x("//input[@id='login-form-username']");
-    private SelenideElement passwordField = $x("//input[@id='login-form-password']");
-    private SelenideElement loginButton = $x("//input[@id='login']");
-    private SelenideElement errorMessage = $x("//div[contains(@class, 'aui-message-error')]");
-
+    private final SelenideElement usernameField = $x("//input[@id='login-form-username']");
+    private final SelenideElement passwordField = $x("//input[@id='login-form-password']");
+    private final SelenideElement loginButton = $x("//input[@id='login']");
     public DashboardPage login(String username, String password) {
         waitForElement(usernameField);
         setValueWithCheck(usernameField, username);
@@ -19,15 +15,4 @@ public class LoginPage extends BasePage {
         return new DashboardPage();
     }
 
-    public boolean isErrorMessageVisible() {
-        return errorMessage.is(visible);
-    }
-
-    public String getErrorMessage() {
-        return errorMessage.getText();
-    }
-
-    public boolean isLoginPageDisplayed() {
-        return usernameField.is(visible) && passwordField.is(visible);
-    }
 }
