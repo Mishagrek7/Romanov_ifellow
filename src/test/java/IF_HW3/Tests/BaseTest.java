@@ -23,12 +23,15 @@ public class BaseTest {
 
     @BeforeAll
     static void setupAll() {
-        SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
+        SelenideLogger.addListener("AllureSelenide", new AllureSelenide()
+                .screenshots(true)
+                .savePageSource(true));
         loadConfig();
 
         Configuration.browser = "chrome";
         Configuration.timeout = 10000;
-        Configuration.browserSize = null;
+        Configuration.browserSize = "1920x1080";
+        Configuration.headless = false;
     }
 
     @BeforeEach
