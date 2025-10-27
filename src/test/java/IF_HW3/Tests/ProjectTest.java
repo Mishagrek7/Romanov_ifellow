@@ -5,13 +5,12 @@ import IF_HW3.Pages.LoginPage;
 import IF_HW3.Pages.ProjectPage;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-@Epic("Jira Automation")
-@Feature("Навигация по проектам")
-@Story("Переход в проект Test")
+@DisplayName("Переход в проект Test")
 public class ProjectTest extends BaseTest {
 
     @Test
@@ -19,6 +18,7 @@ public class ProjectTest extends BaseTest {
     @Description("Проверка успешного перехода в проект Test из дашборда")
     @Severity(SeverityLevel.CRITICAL)
     @Owner("AT3")
+    @Tag("TEST_2")
     void navigateToProjectTest() {
         Allure.step("Шаг 1: Авторизация в системе", () -> {
             LoginPage loginPage = new LoginPage();

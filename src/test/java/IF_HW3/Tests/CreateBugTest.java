@@ -3,13 +3,12 @@ package IF_HW3.Tests;
 import IF_HW3.Pages.*;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-@Epic("Jira Automation")
-@Feature("Полный цикл работы с задачей")
-@Story("Создание, проверка и закрытие бага")
+@DisplayName("Создание, проверка и закрытие бага")
 public class CreateBugTest extends BaseTest {
 
     @Test
@@ -17,6 +16,7 @@ public class CreateBugTest extends BaseTest {
     @Description("Создание бага, проверка счетчика, переход по связанным задачам и закрытие")
     @Severity(SeverityLevel.CRITICAL)
     @Owner("AT3")
+    @Tag("TEST_5")
     void createBugAndCloseTest() {
         Allure.step("Шаг 1: Авторизация в системе", () -> {
             LoginPage loginPage = new LoginPage();

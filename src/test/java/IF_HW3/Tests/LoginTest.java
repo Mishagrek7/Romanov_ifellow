@@ -4,13 +4,12 @@ import IF_HW3.Pages.DashboardPage;
 import IF_HW3.Pages.LoginPage;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-@Epic("Jira Automation")
-@Feature("Авторизация")
-@Story("Успешная авторизация в системе")
+@DisplayName("Авторизация")
 public class LoginTest extends BaseTest {
 
     @Test
@@ -18,6 +17,7 @@ public class LoginTest extends BaseTest {
     @Description("Проверка успешной авторизации пользователя в системе Jira")
     @Severity(SeverityLevel.BLOCKER)
     @Owner("AT3")
+    @Tag("TEST_1")
     void authorizationTest() {
         Allure.step("Шаг 1: Авторизация в системе", () -> {
             LoginPage loginPage = new LoginPage();

@@ -5,6 +5,8 @@ import com.codeborne.selenide.SelenideElement;
 import java.time.Duration;
 
 import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Selenide.actions;
+import static com.codeborne.selenide.Selenide.executeJavaScript;
 
 public abstract class BasePage {
 
@@ -20,5 +22,25 @@ public abstract class BasePage {
         element.shouldBe(visible).clear();
         element.setValue(value);
         element.shouldHave(value(value));
+    }
+
+    protected void setPasswordSafely(SelenideElement passwordField, String password) {
+        passwordField.shouldBe(visible).clear();
+
+        executeJavaScript(
+                "arguments[0].value = arguments[1]",
+                passwordField,
+                password
+        );
+
+        passwordField.shouldBe(enabled);
+    }
+
+    protected void setPasswordWithActions(SelenideElement passwordField, String password) {
+        passwordField.shouldBe(visible).click();
+
+        actions()
+                .sendKeys(password)
+                .perform();
     }
 }

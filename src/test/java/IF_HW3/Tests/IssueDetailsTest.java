@@ -3,13 +3,12 @@ package IF_HW3.Tests;
 import IF_HW3.Pages.*;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-@Epic("Jira Automation")
-@Feature("Детали задачи")
-@Story("Проверка деталей связанной задачи TEST-121544")
+@DisplayName("Проверка деталей связанной задачи TEST-121544")
 public class IssueDetailsTest extends BaseTest {
 
     @Test
@@ -17,6 +16,7 @@ public class IssueDetailsTest extends BaseTest {
     @Description("Создание задачи, поиск и проверка деталей связанной задачи TEST-121544")
     @Severity(SeverityLevel.NORMAL)
     @Owner("AT3")
+    @Tag("TEST_4")
     void checkIssueDetailsTest() {
         Allure.step("Шаг 1: Авторизация в системе", () -> {
             LoginPage loginPage = new LoginPage();

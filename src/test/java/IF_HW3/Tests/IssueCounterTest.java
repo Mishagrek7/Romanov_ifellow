@@ -6,13 +6,12 @@ import IF_HW3.Pages.LoginPage;
 import IF_HW3.Pages.ProjectPage;
 import io.qameta.allure.*;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-@Epic("Jira Automation")
-@Feature("Счетчик задач")
-@Story("Проверка увеличения счетчика задач после создания бага")
+@DisplayName("Счетчик задач")
 public class IssueCounterTest extends BaseTest {
 
     @Test
@@ -20,6 +19,7 @@ public class IssueCounterTest extends BaseTest {
     @Description("Проверка увеличения счетчика задач на 1 после создания нового бага")
     @Severity(SeverityLevel.CRITICAL)
     @Owner("AT3")
+    @Tag("TEST_3")
     void checkIssueCounterTest() {
         Allure.step("Шаг 1: Авторизация в системе", () -> {
             LoginPage loginPage = new LoginPage();
