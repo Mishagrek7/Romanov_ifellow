@@ -2,7 +2,7 @@ package IF_HW5.Tests;
 
 import IF_HW5.pages.AuthApiPage;
 import IF_HW5.pages.RickAndMortyApiPage;
-import org.junit.Before;
+import io.qameta.allure.Allure;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -14,8 +14,9 @@ public class BaseTest {
     protected AuthApiPage authPage;
     protected RickAndMortyApiPage rickAndMortyPage;
 
-    @Before
     public void setUp() throws IOException {
+        Allure.step("Инициализация тестовой среды");
+
         properties = new Properties();
         InputStream inputStream = getClass().getClassLoader().getResourceAsStream("config.properties");
         if (inputStream != null) {
@@ -30,6 +31,8 @@ public class BaseTest {
                 getProperty("logout.url")
         );
         rickAndMortyPage = new RickAndMortyApiPage(getProperty("rickandmorty.api.url"));
+
+        Allure.step("Тестовая среда инициализирована");
     }
 
     protected String getProperty(String key) {
