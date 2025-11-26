@@ -28,9 +28,10 @@ public class RickAndMortyTest extends BaseTest {
         String lastCharacterSpecies = rickAndMortyPage.getSpecies(characterJson, "species");
         String lastCharacterLocation = rickAndMortyPage.getLocation(characterJson, "location.name");
 
-        assertNotNull(mortySpecies);
-        assertNotNull(mortyLocation);
-        assertNotNull(lastCharacterSpecies);
-        assertNotNull(lastCharacterLocation);
+        boolean speciesDiffer = !mortySpecies.equals(lastCharacterSpecies);
+        boolean locationDiffer = !mortyLocation.equals(lastCharacterLocation);
+
+        assertTrue(speciesDiffer || locationDiffer);
+
     }
 }
